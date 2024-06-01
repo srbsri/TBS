@@ -1,6 +1,9 @@
-﻿namespace TBS.Data
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace TBS.Data
 {
-    public class ApplicationDbContext
+    public class ApplicationDbContext: DbContext
     {
+
     }
 }
