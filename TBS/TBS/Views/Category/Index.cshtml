@@ -1,47 +1,31 @@
-﻿@model IEnumerable<TBS.Models.Category>
+﻿@model List<Category>
 
-@{
-    ViewData["Title"] = "Index";
-}
+    <h1> Category List</h1>
+    <div class="text-dark">
+        <a asp-action="Create" asp-controller="Category" class="btn btn-primarybi">Create</a>
+    </div>
+ <table class="table table-bordered table-striped">
+     <thead>
+         <tr>
+             <th>Id</th>
+             <th>Name</th>
+             <th>Age</th>
+            <th>Description</th>
+         </tr>
+     </thead>
 
-<h1>Index</h1>
+     <tbody>
+         @foreach (var item in Model)
+        {
+            
+         <tr>
+             <td>@item.Id</td>
+             <td>@item.Name</td>
+             <td>@item.Age</td>
+             <td>@item.Description</td>
+         </tr>
+        }
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Age)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Age)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+     </tbody>
+
+ </table>
