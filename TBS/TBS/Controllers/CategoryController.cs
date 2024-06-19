@@ -30,6 +30,16 @@ namespace TBS.Controllers
             TempData["success"] = "Category Created Successfully";
             return RedirectToAction("Index");
         }
+
+        public IActionResult Edit()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Edit(int id)
+        {
+            return View();
+        }
     }
 }
 

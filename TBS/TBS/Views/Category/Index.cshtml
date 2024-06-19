@@ -13,6 +13,8 @@
             <th>Name</th>
             <th>Age</th>
             <th>Description</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
 
@@ -25,6 +27,16 @@
                 <td>@item.Name</td>
                 <td>@item.Age</td>
                 <td>@item.Description</td>
+                <td>
+                    <div class="form-group">
+                        <a asp-action="Edit" class="btn btn-info">Edit</a>
+                    </div>
+
+                </td>
+                <td>
+                    <a asp-action="Delete" class="btn btn-danger">Delete</a>
+
+                </td>
             </tr>
         }
 
