@@ -1,13 +1,14 @@
 ﻿@model List<Category>
 
     <h1> Category List</h1>
-    <div class="text-dark">
-        <a asp-action="Create" asp-controller="Category" class="btn btn-primarybi">Create</a>
+    <div class="text-dark pb-2">
+    <a asp-action="Create" asp-controller="Category" class="btn btn-success">Create</a>
     </div>
- <table class="table table-bordered table-striped">
+ <table class="table table-bordered table-striped text-center">
      <thead>
-         <tr>
-             <th>Id</th>
+        <tr class="table-info">
+
+            <th scope="row">Id</thclass>
              <th>Name</th>
              <th>Age</th>
             <th>Description</th>
