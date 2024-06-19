@@ -1,32 +1,33 @@
 ﻿@model List<Category>
 
-    <h1> Category List</h1>
-    <div class="text-dark pb-2">
+<h1> Category List</h1>
+<p style="color:green">@TempData["success"]</p>
+<div class="text-dark pb-2">
     <a asp-action="Create" asp-controller="Category" class="btn btn-success">Create</a>
-    </div>
- <table class="table table-bordered table-striped text-center">
-     <thead>
+</div>
+<table class="table table-bordered table-striped text-center">
+    <thead>
         <tr class="table-info">
 
             <th scope="row">Id</thclass>
-             <th>Name</th>
-             <th>Age</th>
+            <th>Name</th>
+            <th>Age</th>
             <th>Description</th>
-         </tr>
-     </thead>
+        </tr>
+    </thead>
 
-     <tbody>
-         @foreach (var item in Model)
+    <tbody>
+        @foreach (var item in Model)
         {
-            
-         <tr>
-             <td>@item.Id</td>
-             <td>@item.Name</td>
-             <td>@item.Age</td>
-             <td>@item.Description</td>
-         </tr>
+
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Age</td>
+                <td>@item.Description</td>
+            </tr>
         }
 
-     </tbody>
+    </tbody>
 
- </table>
+</table>
