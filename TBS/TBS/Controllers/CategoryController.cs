@@ -31,15 +31,52 @@ namespace TBS.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult Edit()
-        {
-            return View();
+        public IActionResult Edit(int? id)
+            
+        {if (id== null || id == null)
+            {
+                return NotFound();
+            }
+            Category categoryFromDb = _db.Categories.Find(id);
+
+            return View(categoryFromDb);
         }
         [HttpPost]
-        public IActionResult Edit(int id)
+        public IActionResult Edit(Category obj)
         {
-            return View();
+
+            _db.Categories.Update(obj);
+            _db.SaveChanges();
+            TempData["success"] = "Category Created Successfully";
+            return RedirectToAction("Index");
         }
+
+        //public IActionResult Edit(int? id)
+        //{
+        //    if (id== null || id==0)
+        //    {
+        //        return NotFound();
+        //    }
+        //    Category categoryFromDb= _db.Categories.Find(id);
+        //    if (categoryFromDb==null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    //Category categoryFromDb= _db.Categories.FirstOrDefault(c=>c.Id==id);
+        //    return View(categoryFromDb);
+        //}
+        //[HttpPost]
+        //public IActionResult Edit(Category obj)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _db.Categories.Update(obj);
+        //        _db.SaveChanges();
+        //        TempData["success"] = "Category Updated Successfully";
+        //        return RedirectToAction("Index");
+        //    }
+        //}
     }
 }
 
