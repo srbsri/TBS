@@ -18,7 +18,7 @@ namespace TBS.Controllers
         }
 
         public IActionResult Create()
-        {           
+        {
             return View();
         }
         [HttpPost]
@@ -32,8 +32,9 @@ namespace TBS.Controllers
         }
 
         public IActionResult Edit(int? id)
-            
-        {if (id== null || id == null)
+
+        {
+            if (id == null || id == null)
             {
                 return NotFound();
             }
@@ -47,36 +48,60 @@ namespace TBS.Controllers
 
             _db.Categories.Update(obj);
             _db.SaveChanges();
-            TempData["success"] = "Category Created Successfully";
+            TempData["success"] = "Category Updated Successfully";
             return RedirectToAction("Index");
         }
 
-        //public IActionResult Edit(int? id)
-        //{
-        //    if (id== null || id==0)
-        //    {
-        //        return NotFound();
-        //    }
-        //    Category categoryFromDb= _db.Categories.Find(id);
-        //    if (categoryFromDb==null)
-        //    {
-        //        return NotFound();
-        //    }
+        public IActionResult Delete(int? id)
 
-        //    //Category categoryFromDb= _db.Categories.FirstOrDefault(c=>c.Id==id);
+        {
+            if (id == null || id == null)
+            {
+                return NotFound();
+            }
+            Category? categoryFromDb = _db.Categories.Find(id);
+
+            return View(categoryFromDb);
+        }
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeletePost(int? id)
+        {
+            Category? obj = _db.Categories.Find(id);
+            if (obj == null)
+            {
+                return NotFound();
+            }
+            _db.Categories.Remove(obj);
+            _db.SaveChanges();
+            TempData["success"] = "Category Deleted Successfully";
+            return RedirectToAction("Index");
+        }
+
+        //public IActionResult Delete(int? id)
+
+        //{
+        //    if (id == null || id == null)
+        //    {
+        //        return NotFound();
+        //    }
+        //    Category categoryFromDb = _db.Categories.Find(id);
+
         //    return View(categoryFromDb);
         //}
         //[HttpPost]
-        //public IActionResult Edit(Category obj)
+        //public IActionResult Delete(Category obj)
         //{
-        //    if (ModelState.IsValid)
+        //    Category objj = _db.Categories.Find(obj.Id);
+        //    if (objj == null)
         //    {
-        //        _db.Categories.Update(obj);
-        //        _db.SaveChanges();
-        //        TempData["success"] = "Category Updated Successfully";
-        //        return RedirectToAction("Index");
+        //        return NotFound();
         //    }
+        //    _db.Categories.Remove(objj);
+        //    _db.SaveChanges();
+        //    TempData["success"] = "Category Deleted Successfully";
+        //    return RedirectToAction("Index");
         //}
+
     }
 }
 
