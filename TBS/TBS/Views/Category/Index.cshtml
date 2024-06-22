@@ -1,7 +1,6 @@
 ﻿@model List<Category>
 
 <h1> Category List</h1>
-<p style="color:green">@TempData["success"]</p>
 <div class="text-dark pb-2">
     <a asp-action="Create" asp-controller="Category" class="btn btn-success">Create</a>
 </div>
@@ -14,14 +13,12 @@
             <th>Age</th>
             <th>Description</th>
             <th></th>
-            <th></th>
+            
         </tr>
     </thead>
-
     <tbody>
         @foreach (var obj in Model)
         {
-
             <tr>
                 <td>@obj.Id</td>
                 <td>@obj.Name</td>
@@ -36,11 +33,8 @@
                             <i class="bi bi-trash-fill"></i> Delete
                         </a>
                     </div>
-
                 </td>
             </tr>
         }
-
     </tbody>
-
 </table>
