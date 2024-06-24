@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TBS.Models;
 
-namespace TBS.Data
+namespace TBS.DataAccess.Data
 {
     public class ApplicationDbContext : DbContext
     {

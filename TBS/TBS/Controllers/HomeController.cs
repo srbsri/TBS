@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using TBS.Models;
 
-namespace TBS.Controllers
+namespace TBSWeb.Controllers
 {
     public class HomeController : Controller
     {

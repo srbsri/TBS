@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using TBS.Data;
+using TBS.DataAccess.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

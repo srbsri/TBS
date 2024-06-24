@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using TBS.Data;
+using TBS.DataAccess.Data;
 using TBS.Models;
 
-namespace TBS.Controllers
+
+namespace TBSWeb.Controllers
 {
     public class CategoryController : Controller
     {
